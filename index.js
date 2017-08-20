@@ -62,6 +62,10 @@ function startStreaming(io) {
         io.sockets.emit('solarUpdate', 'image_solar.jpg?_t=' + (Math.random() * 100000));
         return;
     }
+    if(!fs.existsSync('./stream/')){
+        fs.mkdirSync('./stream/');
+    }
+
     //var timer = later.setInterval(takeSolarPicture, schedule);
     var timer2 = later.setInterval(takePicture, schedule);
 
